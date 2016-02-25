@@ -7,13 +7,13 @@
 ## In the beginning s set to NULL, and after matrix solved, the result will be stored here.
 
 makeCacheMatrix <- function(x = matrix()) {
-        s<-NULL ##initially set 's' to NULL
-        set<- function (y) { ##this part is actually useless and can be omitted, as it will be never called by cacheSolve
-                x<<-y
-                s<<-NULL
+        s <- NULL ##initially set 's' to NULL
+        set <- function (y) { ##this part is actually useless and can be omitted, as it will be never called by cacheSolve
+                x <<- y
+                s <<- NULL
         }
-        get <-function() x ##return the matrix
-        setSolve <-function(solve) s<<-solve ##assign 'solve' to s 'variable'
+        get <- function() x ##return the matrix
+        setSolve <- function(solve) s <<- solve ##assign 'solve' to s 'variable'
         getSolve <- function() s ##return 's' (solved matrix or NULL)
         list (set=set, get=get, setSolve=setSolve, getSolve=getSolve)
 }
@@ -30,8 +30,8 @@ cacheSolve <- function(x, ...) {
                 message("getting cached data")
                 return(s) ##return result from cache and exit the function
         }
-        data<-x$get()  ##if matrix was not solved, assign matrix 'x' to 'data' variable
-        s<-solve(data, ...) ##solve this matrix
+        data <- x$get()  ##if matrix was not solved, assign matrix 'x' to 'data' variable
+        s <- solve(data, ...) ##solve this matrix
         x$setSolve(s)  ##save the result to s
         s  ## Return a matrix that is the inverse of 'x'
          
