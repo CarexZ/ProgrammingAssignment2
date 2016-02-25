@@ -25,7 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## solves the matrix, saves the result to the cache and returns the result.
 
 cacheSolve <- function(x, ...) {
-        s<-x$getSolve()
+        s <- x$getSolve()
         if (!is.null(s)) { ##check if this matrix was solved before
                 message("getting cached data")
                 return(s) ##return result from cache and exit the function
